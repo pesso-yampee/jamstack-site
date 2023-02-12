@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.list a {
+  transition: color .5s;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--accent);
+    }
+  }
+
+  @media (hover: none) {
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      color: var(--accent);
+    }
+  }
+}

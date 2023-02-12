@@ -1,0 +1,36 @@
+<div class="block">
+  <div class="three">3</div>
+  <div class="two">2</div>
+  <div class="one">1</div>
+</div>
+
+<style>
+  div.block {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+  
+  .one {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    align-self: flex-start;
+    justify-self: start;
+    background-color: plum;
+  }
+
+  .two {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 45%;
+    background-color: aqua;
+    text-align: center;
+  }
+
+  .three {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    text-align: center;
+    background-color: brown;
+  }
+</style>

@@ -1,0 +1,27 @@
+@use "mq" as *;
+
+.flexContainer {
+  composes: sideBySideCenter from "styles/utils.module.scss";
+}
+
+.text {
+  padding: clamp(2.25rem, 1.2817rem + 4.1315vw, 5rem) 0 clamp(3.125rem, 1.7606rem + 5.8216vw, 7rem);
+}
+
+.title {
+  letter-spacing: .15em;
+  font-weight: 900;
+  font-size: var(--display);
+}
+
+.subtitle {
+  font-size: var(--small-heading2);
+}
+
+.image {
+  width: 100%;
+  
+  @include mq(md) {
+    width: 50%;
+  }
+}

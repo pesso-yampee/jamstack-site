@@ -1,0 +1,9 @@
+.stack > * + * {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--stack-space, 1em);
+}
+
+.heading {
+font-size: var(--body);
+}

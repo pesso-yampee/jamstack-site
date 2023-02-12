@@ -1,0 +1,130 @@
+/** -----------------------------------
+  Color
+----------------------------------- */
+:root {
+  /* Color */
+  --white: #ffffff;
+  --black: #222222;
+  --gray-10: #eeeeee;
+  --gray-25: #aaaaaa;
+  --gray-50: #707070;
+  --gray-70: #444444;
+  --accent: #0d87e0;
+
+  /* Typography(font-size) */
+  --body: clamp(1rem, 0.948rem + 0.22vw, 1.125rem);
+  /* 16-18px */
+  --display: clamp(4.5rem, 2.221rem + 9.72vw, 10rem);
+  /* 72-160px */
+  --heading1: clamp(2rem, 1.171rem + 3.54vw, 4rem);
+  /* 32-64px */
+  --heading2: clamp(var(--body) * 1.5);
+  /* 24-27px */
+  --heading3: clamp(var(--body) * 1.2);
+  /* 19.2-21.6px */
+  --small-heading2: clamp(0.875rem, 0.538rem + 1.44vw, 1.688rem);
+  /* 14-27px */
+  --small-heading3: clamp(var(--small-heading2) * 0.86);
+  /* 12-23px */
+
+  /* Space */
+  --space-xs: clamp(1.25rem, 0.991rem + 1.1vw, 1.875rem);
+  /* 20-30px */
+  --space-sm: calc(var(--space-xs) * 1.5);
+  /* 30-45px */
+  --space-md: calc(var(--space-xs) * 2);
+  /* 40-60px */
+  --space-lg: calc(var(--space-xs) * 3);
+  /* 60-90px */
+  --space-xl: calc(var(--space-xs) * 4);
+  /* 80-120px */
+  --space-jump: clamp(1.25rem, 0.214rem + 4.42vw, 3.75rem);
+  /* 20-60px */
+}
+
+/** ----------------------------
+Basic Setting
+---------------------------- */
+body {
+  color: var(--black);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: var(--body);
+}
+
+h1 {
+  font-size: var(--heading1);
+}
+
+h2 {
+  font-size: var(--heading2);
+}
+
+h3 {
+  font-size: var(--heading3);
+}
+
+/** -----------------------------------
+  Reset
+----------------------------------- */
+html,
+body,
+h1,
+h2,
+h3,
+p,
+figure,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  transition: .2s;
+}
+
+/** -----------------------------------
+  Dark Mode
+----------------------------------- */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    color: white;
+    background: black;
+  }
+}
