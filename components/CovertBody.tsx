@@ -10,17 +10,19 @@ export default function ConvertBody({ contentHTML }: Props) {
   const contentReact = parse(contentHTML, {
     replace: (node) => {
       if (node instanceof Element && node.name === "img") {
-        console.log(node.attributes);
-        // const { node.attributes.src, node.attributes.alt, width, height } = node.attributes
-        // return (
-        //   <Image
-        //     src={src}
-        //     alt={alt}
-        //     width={width}
-        //     height={height}
-        //     sizes="(min-width: 768px) 768px, 100vw"
-        //   />
-        // )
+        const src = node.attributes[0].value
+        const alt = node.attributes[1].value
+        const width = Number(node.attributes[2].value)
+        const height = Number(node.attributes[3].value)
+        return (
+          <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            sizes="(min-width: 768px) 768px, 100vw"
+          />
+        )
       }
     },
   })

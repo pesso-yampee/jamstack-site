@@ -18,13 +18,13 @@
   /* 72-160px */
   --heading1: clamp(2rem, 1.171rem + 3.54vw, 4rem);
   /* 32-64px */
-  --heading2: clamp(var(--body) * 1.5);
+  --heading2: calc(var(--body) * 1.5);
   /* 24-27px */
-  --heading3: clamp(var(--body) * 1.2);
+  --heading3: calc(var(--body) * 1.2);
   /* 19.2-21.6px */
   --small-heading2: clamp(0.875rem, 0.538rem + 1.44vw, 1.688rem);
   /* 14-27px */
-  --small-heading3: clamp(var(--small-heading2) * 0.86);
+  --small-heading3: calc(var(--small-heading2) * 0.86);
   /* 12-23px */
 
   /* Space */

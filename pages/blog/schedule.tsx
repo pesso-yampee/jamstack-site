@@ -6,38 +6,58 @@ import Image from 'next/image'
 import PostHeader from 'components/post-header'
 import PostBody from 'components/post-body'
 import ConvertBody from 'components/CovertBody'
-import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from 'components/two-column'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from 'components/two-column'
+import PostCategories from 'components/PostCategories'
 
 type Props = {
   title: string
   subtitle: string
   publish: string
-  content: string
   eyecatch: {
     url: string
     height: number
     width: number
   }
-  categories: {
-    id: string
-    createdAt: string
-    updatedAt: string
-    publishedAt: string
-    revisedAt: string
-    name: string
+  lead: {
+    value: string
   }
+  section: {
+    heading: string
+    text01: string
+    image: {
+      url: string
+      width: number
+      height: number
+    }
+    text02: string
+  }
+  categories: [
+    {
+      id: string
+      createdAt: string
+      updatedAt: string
+      publishedAt: string
+      revisedAt: string
+      name: string
+      slug: string
+    },
+  ]
 }
 
 export default function Schedule({
   title,
   subtitle,
   publish,
-  content,
+  lead,
+  section,
   eyecatch,
   categories,
 }: Props) {
+  const image = section.image
   return (
     <>
       <Container>
@@ -54,21 +74,28 @@ export default function Schedule({
               priority
             />
           </figure>
-          <PostBody>
-            <TwoColumn>
-              <TwoColumnMain>
-                <ConvertBody contentHTML={content} />
-              </TwoColumnMain>
-              <TwoColumnSidebar>
-                <FontAwesomeIcon
-                  icon={faFolderOpen}
-                  color="var(--gray-50)"
-                  size="lg"
-                />
-                <a href="#">{categories.name}</a>
-              </TwoColumnSidebar>
-            </TwoColumn>
-          </PostBody>
+          <TwoColumn>
+            <TwoColumnMain>
+              <PostBody>
+                <p>{lead.value}</p>
+                <h2>{section.heading}</h2>
+                <p>{section.text01}</p>
+                <figure>
+                  <Image
+                    src={image.url}
+                    alt=""
+                    width={image.width}
+                    height={image.height}
+                    sizes="(min-width: 768px) 768px, 100vw"
+                  />
+                </figure>
+                <p>{section.text02}</p>
+              </PostBody>
+            </TwoColumnMain>
+            <TwoColumnSidebar>
+              <PostCategories categories={categories} />
+            </TwoColumnSidebar>
+          </TwoColumn>
         </article>
       </Container>
     </>
@@ -84,8 +111,9 @@ export async function getStaticProps() {
       title: post.title,
       subtitle: post.subtitle,
       publish: post.publishDate,
-      content: post.content,
       eyecatch: post.eyecatch,
+      lead: post.lead,
+      section: post.section,
       categories: post.categories,
     },
   }
