@@ -1,10 +1,22 @@
 @use "mq" as *;
 
-.list {
+.flexContainer {
   display: flex;
-  align-items: center;
-  @include mq(md) {
+  align-items: baseline;
+  gap: 1.25rem;
+
+  @media screen and (min-width: 768px) {
     flex-direction: column;
-    align-items: flex-end;
+    align-items: initial;
   }
+}
+
+.heading {
+  font-size: var(--small-heading2);
+}
+
+.list {
+  composes: flexContainer;
+  font-size: var(--small-heading3);
+  gap: .75rem;
 }

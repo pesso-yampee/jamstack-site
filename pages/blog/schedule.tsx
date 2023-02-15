@@ -13,6 +13,16 @@ import {
 } from 'components/two-column'
 import PostCategories from 'components/PostCategories'
 
+type Category = {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  name: string
+  slug: string
+}
+
 type Props = {
   title: string
   subtitle: string
@@ -35,17 +45,7 @@ type Props = {
     }
     text02: string
   }
-  categories: [
-    {
-      id: string
-      createdAt: string
-      updatedAt: string
-      publishedAt: string
-      revisedAt: string
-      name: string
-      slug: string
-    },
-  ]
+  categories: Category[]
 }
 
 export default function Schedule({

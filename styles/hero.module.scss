@@ -20,8 +20,8 @@
 
 .image {
   width: 100%;
-  
-  @include mq(md) {
+
+  @media screen and (min-width: 768px) {
     width: 50%;
   }
 }

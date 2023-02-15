@@ -3,32 +3,40 @@ import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 import styles from 'styles/post-categories.module.scss'
 import Link from 'next/link'
 
-interface C {
+type Category = {
+  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
+  name: string
+  slug: string
+}
+
+type CategoryItem = {
+  id: string
   name: string
   slug: string
 }
 
 type Props = {
-  categories: Array<C>
+  categories: Category[]
 }
 
-type Category = {
-  name: string
-  slug: string
-}
-
-export default function PostCategories({categories}: Props) {
+export default function PostCategories({ categories }: Props) {
   return (
-    <>
-      <FontAwesomeIcon icon={faFolderOpen} color="var(--gray-50)" size="lg" />
+    <div className={styles.flexContainer}>
+      <h3 className={styles.heading}>
+        <FontAwesomeIcon icon={faFolderOpen} color="var(--gray-50)" size="lg" />
+        <span className="sr-only">Categories</span>
+      </h3>
       <ul className={styles.list}>
-        {categories.map(({ name, slug }: Category) => {})}
-        {/* // <li key={slug}>
-        //   <Link href={`/blog/category/${slug}`}>
-        //     <a>{name}</a>
-        //   </Link>
-        // </li> */}
+        {categories.map(({ id, name, slug }: CategoryItem) => (
+          <li key={id}>
+            <Link href={`/blog/category/${slug}`}>{name}</Link>
+          </li>
+        ))}
       </ul>
-    </>
+    </div>
   )
 }

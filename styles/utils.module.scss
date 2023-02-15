@@ -11,7 +11,8 @@
 .sideBySide {
   display: flex;
   flex-direction: column;
-  @include mq(md) {
+
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -24,7 +25,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  @include mq(md) {
+
+  @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

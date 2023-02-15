@@ -7,27 +7,27 @@
 }
 
 .main {
-  @include mq(md) {
+  @media screen and (min-width: 768px) {
     width: 768px;
   }
 }
 
 .sidebar {
-  @include mq(md) {
+  @media screen and (min-width: 768px) {
     position: sticky;
     top: 40px;
     align-self: flex-start;
     width: 240px;
   }
-  
+
   & * {
-    @include mq(md) {
+    @media screen and (min-width: 768px) {
       text-align: right;
     }
   }
-  
+
   &:is(div, ul) {
-    @include mq(md) {
+    @media screen and (min-width: 768px) {
       width: fit-content;
       margin-left: auto;
       place-items: flex-end;
