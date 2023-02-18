@@ -13,7 +13,7 @@ import Meta from 'components/meta'
 import eyechatch from '/assets/media/images/about.jpg'
 
 export default function About() {
-  const metaProps = {
+  const metaConfig = {
     pageTitle: 'About',
     pageDesc: 'About development activities',
     pageImg: eyechatch.src,
@@ -21,7 +21,7 @@ export default function About() {
     pageImgH: eyechatch.height,
   }
 
-  const heroProps = {
+  const heroConfig = {
     title: 'About',
     subtitle: 'About development activities',
     imageOn: false,
@@ -30,8 +30,8 @@ export default function About() {
   return (
     <>
       <Container>
-        <Meta {...metaProps}></Meta>
-        <Hero {...heroProps} />
+        <Meta {...metaConfig}></Meta>
+        <Hero {...heroConfig} />
         <Image
           className=""
           src={eyechatch}
