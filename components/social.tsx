@@ -10,7 +10,7 @@ type Props = {
   iconSize: string
 }
 
-export default function Social ({iconSize="initial"} :Props): JSX.Element {
+export default function Social ({iconSize="initial"} :Props) {
   return (
     <>
       <ul className={styles.list} style={{fontSize: iconSize}}>
