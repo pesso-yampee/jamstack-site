@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import styles from 'styles/two-column.module.scss'
+import styles from 'styles/two-column.module.css'
 
 type Props = {
   children: ReactNode

@@ -7,13 +7,12 @@ type AllSlugs = Contents[]
 
 export function PrevNextPost(allSlugs: AllSlugs, currentSlug: string) {
   const length: number = allSlugs.length
-  const currentSlugIndex = allSlugs.findIndex(({slug}) => {
+  const currentSlugIndex: number = allSlugs.findIndex(({ title, slug }) => {
     return slug === currentSlug
   })
   const prevPost: any =
-    currentSlugIndex + 1 === length ? null : allSlugs[currentSlugIndex - 1]
+    currentSlugIndex + 1 === length ? null : allSlugs[currentSlugIndex + 1]
   const nextPost: any =
-    currentSlugIndex - 1 === 0 ? null : allSlugs[currentSlugIndex + 1]
-
+    currentSlugIndex === 0 ? null : allSlugs[currentSlugIndex - 1]
   return [prevPost, nextPost]
 }

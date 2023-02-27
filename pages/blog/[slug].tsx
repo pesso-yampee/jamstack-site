@@ -79,7 +79,8 @@ export default function Post({
         pageImgH={eyecatch.height}
       ></Meta>
       <Container>
-        <article>
+        <article style={{paddingBottom: "var(--space-lg)"
+        }}>
           <PostHeader title={title} subtitle="Blog Article" publish={publish} />
           <figure>
             <Image
@@ -116,12 +117,12 @@ export default function Post({
               <PostCategories categories={categories} />
             </TwoColumnSidebar>
           </TwoColumn>
-            <div>
-              {prevPost.title} {prevPost.slug}
-            </div>
-            <div>
-              {nextPost.title} {nextPost.slug}
-            </div>
+          <Pagination
+            prevText={prevPost && prevPost.title}
+            prevUrl={prevPost && `/blog/${prevPost.slug}`}
+            nextText={nextPost && nextPost.title}
+            nextUrl={nextPost && `/blog/${nextPost.slug}`}
+          />
         </article>
       </Container>
     </>
@@ -158,7 +159,7 @@ interface Params {
 export async function getStaticProps(context: ContextProps) {
   const slug: string = context.params.slug
   const post = await getPostBySlug(slug)
-  // 単純にpost.section.text01だとundefindになる。
+  // TODO: 単純にpost.section.text01だとundefindになる。
   const description: string = extractText(`${post.section.text01}`)
   const eyecatch = post.eyecatch ?? eyeCatchLocal
   const { base64 } = await getPlaiceholder(eyecatch.url)

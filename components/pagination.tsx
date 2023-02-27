@@ -1,5 +1,40 @@
-import Link from "next/link";
-
-export default function Pagination() {
-
+import styles from 'styles/pagination.module.css'
+import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faChevronLeft,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons'
+type Props = {
+  prevText: string | null
+  prevUrl: string | null
+  nextText: string | null
+  nextUrl: string | null
+}
+export default function Pagination({
+  prevText = '',
+  prevUrl = '',
+  nextText = '',
+  nextUrl = '',
+}: Props): JSX.Element {
+  return (
+    <ul className={styles.flexContainer}>
+      <li className={styles.prev}>
+        {prevText && prevUrl && (
+          <Link href={prevUrl} className={styles.linkFeature}>
+            <FontAwesomeIcon icon={faChevronLeft} color="var(--gray-25)" />
+            {prevText}
+          </Link>
+        )}
+      </li>
+      <li className={styles.next}>
+        {nextText && nextUrl && (
+          <Link href={nextUrl} className={styles.linkFeature}>
+            {nextText}
+            <FontAwesomeIcon icon={faChevronRight} color="var(--gray-25)" />
+          </Link>
+        )}
+      </li>
+    </ul>
+  )
 }

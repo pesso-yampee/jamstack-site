@@ -1,0 +1,19 @@
+.flexContainer {
+  composes: spaceBetween from 'styles/utils.module.css';
+  margin-top: var(--space-lg);
+  gap: 1em;
+}
+
+.prev {
+  justify-self: flex-start;
+}
+
+.next {
+  justify-self: flex-end;
+}
+
+.linkFeature {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+}

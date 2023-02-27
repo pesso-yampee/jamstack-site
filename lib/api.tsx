@@ -30,3 +30,16 @@ export async function getAllSlugs(limit=100) {
     console.log(getAllSlugs)
   }
 }
+
+export async function getAllCategories(limit=100) {
+  try {
+    const categories = await client.get({
+      endpoint: "categories",
+      queries: {fields: "slug, id", limit: limit}
+    })
+    return categories.contents
+  } catch(error) {
+    console.log("~getAllCategories~")
+    console.log(error)
+  }
+}

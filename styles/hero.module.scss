@@ -1,7 +1,7 @@
 @use "mq" as *;
 
 .flexContainer {
-  composes: sideBySideCenter from "styles/utils.module.scss";
+  composes: sideBySideCenter from "styles/utils.module.css";
 }
 
 .text {

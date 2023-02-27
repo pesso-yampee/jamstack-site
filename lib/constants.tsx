@@ -1,4 +1,4 @@
-export const siteMeta = {
+ export const siteMeta = {
   siteTitle: "CUBE",
   siteDesc: "アウトプットしていくサイト",
   siteUrl: "localhost:3000",
