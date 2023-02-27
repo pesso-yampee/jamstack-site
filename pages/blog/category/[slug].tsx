@@ -1,4 +1,4 @@
-import { getAllCategories } from 'lib/api'
+import { getAllCategories, getPostBySlug } from 'lib/api'
 import { Posts } from 'components/posts'
 import styles from 'style/category.module.css'
 import PostHeader from 'components/post-header'
@@ -12,6 +12,7 @@ export default function Category({ name }: Props) {
 }
 
 type Contents = {
+  name: string
   slug: string
   id: string
 }
@@ -36,10 +37,10 @@ export async function getStaticProps(context: Context) {
   const catSlug: string = context.params.slug
   const categories: AllCategories = await getAllCategories()
   const cat: Contents | undefined = categories.find(({ slug }) => slug === catSlug)
-
+  const post = await getPostBySlug(catSlug)
   return {
     props: {
-      name: cat?.slug,
+      name: cat?.name,
     },
   }
 }

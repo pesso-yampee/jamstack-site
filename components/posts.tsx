@@ -14,9 +14,11 @@ type Contents = {
   }
 }
 
-type AllCategories = Contents[]
+type Props = {
+  categories: Contents[]
+}
 
-export function Posts(categories: AllCategories) {
+export function Posts({categories}: Props) {
   return (
     <>
       <ul className={styles.gridContainer}>

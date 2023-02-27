@@ -9,7 +9,7 @@ export async function getPostBySlug(slug: string) {
   try {
     const post = await client.get({
       endpoint: 'blogs',
-      queries: { filters: `slug[equals]${slug}`},
+      queries: { filters: `slug[equals]${slug}` },
     })
     return post.contents[0]
   } catch (err) {
@@ -18,7 +18,7 @@ export async function getPostBySlug(slug: string) {
   }
 }
 
-export async function getAllSlugs(limit=100) {
+export async function getAllSlugs(limit = 100) {
   try {
     const slugs = await client.get({
       endpoint: 'blogs',
@@ -31,15 +31,18 @@ export async function getAllSlugs(limit=100) {
   }
 }
 
-export async function getAllCategories(limit=100) {
+export async function getAllCategories(limit = 100) {
   try {
     const categories = await client.get({
-      endpoint: "categories",
-      queries: {fields: "slug, id", limit: limit}
+      endpoint: 'categories',
+      queries: { fields: 'name,slug,id', limit: limit },
     })
     return categories.contents
-  } catch(error) {
-    console.log("~getAllCategories~")
+  } catch (error) {
+    console.log('~getAllCategories~')
     console.log(error)
   }
+}
+
+export async function getAllPostsByCategory(catID, limit = 100) {
 }
