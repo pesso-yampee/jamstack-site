@@ -79,8 +79,7 @@ export default function Post({
         pageImgH={eyecatch.height}
       ></Meta>
       <Container>
-        <article style={{paddingBottom: "var(--space-lg)"
-        }}>
+        <article style={{ paddingBottom: 'var(--space-lg)' }}>
           <PostHeader title={title} subtitle="Blog Article" publish={publish} />
           <figure>
             <Image
@@ -99,17 +98,19 @@ export default function Post({
                 <p>{lead.value}</p>
                 <h2>{section.heading}</h2>
                 <p>{section.text01}</p>
-                <figure>
-                  <Image
-                    src={image.url}
-                    alt=""
-                    width={image.width}
-                    height={image.height}
-                    sizes="(min-width: 768px) 768px, 100vw"
-                    placeholder="blur"
-                    blurDataURL={eyecatch.blurDataURL}
-                  />
-                </figure>
+                {image && (
+                  <figure>
+                    <Image
+                      src={image.url}
+                      alt=""
+                      width={image.width}
+                      height={image.height}
+                      sizes="(min-width: 768px) 768px, 100vw"
+                      placeholder="blur"
+                      blurDataURL={eyecatch.blurDataURL}
+                    />
+                  </figure>
+                )}
                 <p>{section.text02}</p>
               </PostBody>
             </TwoColumnMain>
