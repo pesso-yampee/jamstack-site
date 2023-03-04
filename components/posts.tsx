@@ -1,41 +1,46 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { eyeCatchLocal } from './constants'
-import styles from 'style/posts.module.css'
+import styles from 'styles/posts.module.css'
 
-type Contents = {
+type Props = {
+  posts: PostsProps[]
+}
+
+interface PostsProps {
   title: string
   slug: string
   id: string
-  eyecatch: {
-    url: string
-    height: number
-    width: number
-  }
+  eyecatch: PostEyecatch
 }
 
-type Props = {
-  categories: Contents[]
+interface PostEyecatch {
+  url: string
+  width: number
+  height: number
+  blurDataURL: string
 }
 
-export function Posts({categories}: Props) {
+export function Posts({ posts }: Props) {
   return (
     <>
-      <ul className={styles.gridContainer}>
-        {categories.map(({ title, slug, id, eyecatch }) => (
-          <li key={id}>
+      <ul className={styles.flexContainer}>
+        {posts.map(({title,slug,id,eyecatch}) => (
+          <li className={styles.eachPost} key={id}>
             <Link href={`/blog/${slug}`}>
-              <figure>
-                <Image
-                  src={eyecatch.url ?? eyeCatchLocal.url}
-                  alt=""
-                  width={eyecatch.width ?? eyeCatchLocal.width}
-                  height={eyecatch.height ?? eyeCatchLocal.height}
-                  sizes="(min-width: 768px) 546px, 100vw"
-                  placeholder="blur"
-                />
-              </figure>
-              <h3>{title}</h3>
+              {eyecatch && (
+                <figure>
+                  <Image
+                    className={styles.image}
+                    src={eyecatch.url}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1152px) 100%, 50vw"
+                    placeholder="blur"
+                    blurDataURL={eyecatch.blurDataURL}
+                  />
+                </figure>
+              )}
+              <h2 className={styles.title}>{title}</h2>
             </Link>
           </li>
         ))}

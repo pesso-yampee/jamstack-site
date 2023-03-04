@@ -44,5 +44,37 @@ export async function getAllCategories(limit = 100) {
   }
 }
 
-export async function getAllPostsByCategory(catID, limit = 100) {
+export async function getAllPosts(limit = 100) {
+  try {
+    const allPosts = await client.get({
+      endpoint: 'blogs',
+      queries: { fields: 'id,title,slug,eyecatch' },
+    })
+    return allPosts.contents
+  } catch (error) {
+    console.log('~getAllPosts~')
+    console.log(error)
+  }
+}
+
+export async function getAllPostsByCategory(catID: string, limit = 100) {
+  // 空文字だったらエラーを出した上で返却する
+  if (catID === '') {
+    throw new Error('catID is empty string')
+  }
+  try {
+    const posts = await client.get({
+      endpoint: 'blogs',
+      queries: {
+        filters: `categories[contains]${catID}`,
+        fields: 'title,slug,eyecatch,id',
+        orders: '-publishDate',
+        limit: limit,
+      },
+    })
+    return posts.contents
+  } catch (err) {
+    console.log('~getAllPostsByCategory~')
+    console.log(err)
+  }
 }
