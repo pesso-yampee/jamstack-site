@@ -37,8 +37,8 @@ export default function Category({ name, posts }: Props) {
 
 type Contents = {
   name: string
-  slug: string
   id: string
+  slug: string
 }
 
 type Posts = {
@@ -57,9 +57,9 @@ type AllCategories = Contents[]
 type AllPosts = Posts[]
 
 export async function getStaticPaths() {
-  const categories: AllCategories = await getAllCategories()
+  const allcategories: AllCategories = await getAllCategories()
   return {
-    paths: categories.map(({ slug }) => `/blog/category/${slug}`),
+    paths: allcategories.map(({ slug }) => `/blog/category/${slug}`),
     fallback: false,
   }
 }
