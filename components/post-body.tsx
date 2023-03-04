@@ -1,5 +1,5 @@
-import styles from "styles/post-body.module.scss";
 import { ReactNode } from "react";
+import styles from "styles/post-body.module.scss";
 
 type Props = {
   children: ReactNode

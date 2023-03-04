@@ -1,10 +1,10 @@
-import { getAllPosts } from 'lib/api'
-import Container from 'components/container'
-import { eyeCatchLocal } from 'components/constants'
 import { getPlaiceholder } from 'plaiceholder'
+import { eyeCatchLocal } from 'components/constants'
+import Container from 'components/container'
 import Hero from 'components/hero'
 import Meta from 'components/meta'
 import { Posts } from 'components/posts'
+import { getAllPosts } from 'lib/api'
 
 type Props = {
   posts: PostsProps[]

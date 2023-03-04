@@ -1,21 +1,21 @@
-import { getPostBySlug, getAllSlugs } from 'lib/api'
-import Meta from 'components/meta'
-import Container from 'components/container'
 import Image from 'next/image'
-import PostHeader from 'components/post-header'
-import PostBody from 'components/post-body'
+import { getPlaiceholder } from 'plaiceholder'
 import ConvertBody from 'components/CovertBody'
+import PostCategories from 'components/PostCategories'
+import { eyeCatchLocal } from 'components/constants'
+import Container from 'components/container'
+import extractText from 'components/extract-text'
+import Meta from 'components/meta'
+import Pagination from 'components/pagination'
+import PostBody from 'components/post-body'
+import PostHeader from 'components/post-header'
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
 } from 'components/two-column'
-import PostCategories from 'components/PostCategories'
-import extractText from 'components/extract-text'
-import { eyeCatchLocal } from 'components/constants'
-import { getPlaiceholder } from 'plaiceholder'
+import { getPostBySlug, getAllSlugs } from 'lib/api'
 import { PrevNextPost } from 'lib/prev-next-post'
-import Pagination from 'components/pagination'
 
 type Category = {
   id: string

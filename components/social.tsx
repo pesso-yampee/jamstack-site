@@ -1,10 +1,10 @@
-import styles from 'styles/social.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faTwitter,
   faFacebookF,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from 'styles/social.module.scss'
 
 type Props = {
   iconSize: string

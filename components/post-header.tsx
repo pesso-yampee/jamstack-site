@@ -1,7 +1,7 @@
-import styles from 'styles/post-header.module.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ConvertDate from './convert-date'
+import styles from 'styles/post-header.module.scss'
 
 type Props = {
   title: string

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from "next/router";
+// 汎用OGP画像
+import siteImg from "assets/media/images/ogp.jpg"
 import { siteMeta } from 'lib/constants'
 const {
   siteTitle,
@@ -11,8 +13,6 @@ const {
   siteIcon,
 } = siteMeta
 
-// 汎用OGP画像
-import siteImg from "assets/media/images/ogp.jpg"
 
 type Props = {
   pageTitle?: string

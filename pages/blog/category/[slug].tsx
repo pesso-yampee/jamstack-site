@@ -1,9 +1,9 @@
-import { getAllCategories, getAllPostsByCategory } from 'lib/api'
-import { Posts } from 'components/posts'
-import PostHeader from 'components/post-header'
+import { getPlaiceholder } from 'plaiceholder'
 import { eyeCatchLocal } from 'components/constants'
 import Container from 'components/container'
-import { getPlaiceholder } from 'plaiceholder'
+import PostHeader from 'components/post-header'
+import { Posts } from 'components/posts'
+import { getAllCategories, getAllPostsByCategory } from 'lib/api'
 
 type Props = {
   name: string

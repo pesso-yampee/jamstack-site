@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -35,6 +37,7 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
+    "eslint-config-prettier": "^8.6.0",
     "sass": "^1.57.1"
   },
   "config": {

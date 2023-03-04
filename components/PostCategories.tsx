@@ -1,8 +1,8 @@
-import Meta from 'components/meta'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
-import styles from 'styles/post-categories.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
+import Meta from 'components/meta'
+import styles from 'styles/post-categories.module.scss'
 
 type Category = {
   id: string

@@ -1,4 +1,3 @@
-import HTMLReactParser from 'html-react-parser'
 import parse, { Element } from 'html-react-parser'
 import Image from 'next/image'
 
