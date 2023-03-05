@@ -1,6 +1,7 @@
 import { getPlaiceholder } from 'plaiceholder'
 import { eyeCatchLocal } from 'components/constants'
 import Container from 'components/container'
+import Meta from 'components/meta'
 import PostHeader from 'components/post-header'
 import { Posts } from 'components/posts'
 import { getAllCategories, getAllPostsByCategory } from 'lib/api'
@@ -10,24 +11,32 @@ type Props = {
   posts: PostsProps[]
 }
 
-interface PostsProps {
+type PostsProps = {
   title: string
   slug: string
   id: string
-  eyecatch: PostEyecatch
-}
-
-interface PostEyecatch {
-  url: string
-  width: number
-  height: number
-  blurDataURL: string
+  eyecatch: {
+    url: string
+    width: number
+    height: number
+    blurDataURL: string
+  }
+  lead: {
+    fieldId: string
+    value: string
+  }
 }
 
 export default function Category({ name, posts }: Props) {
   return (
     <>
       <Container>
+        {/* {posts.map(({ title, lead, eyecatch }) => (
+          ))} */}
+          <Meta
+            pageTitle={name}
+            pageDesc={`${name}に関する記事`}
+          />
         <PostHeader title={name} subtitle="Blog Category"></PostHeader>
         <Posts posts={posts} />
       </Container>
