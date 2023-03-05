@@ -10,14 +10,14 @@ type Props = {
   posts: PostsProps[]
 }
 
-interface PostsProps {
+type PostsProps = {
   title: string
   slug: string
   id: string
   eyecatch: PostEyecatch
 }
 
-interface PostEyecatch {
+type PostEyecatch = {
   url: string
   width: number
   height: number
@@ -54,20 +54,6 @@ type Posts = {
 }
 
 type AllPosts = Posts[]
-
-// export async function getStaticPaths() {
-//   const categories: AllCategories = await getAllPosts()
-//   return {
-//     paths: categories.map(({ slug }) => `/blog/${slug}`),
-//     fallback: false,
-//   }
-// }
-
-// type Context = {
-//   params: {
-//     slug: string
-//   }
-// }
 
 export async function getStaticProps() {
   const posts: AllPosts = await getAllPosts()

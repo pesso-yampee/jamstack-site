@@ -149,11 +149,11 @@ export async function getStaticPaths() {
 
 type ContextProps = Context
 
-interface Context {
+type Context = {
   params: Params
 }
 
-interface Params {
+type Params = {
   slug: string
 }
 
