@@ -18,7 +18,7 @@ type PostsProps = {
   }
 }
 
-export function Posts({ posts }: Props) {
+export default function Posts({ posts }: Props) {
   return (
     <>
       <div className={styles.gridContainer}>
