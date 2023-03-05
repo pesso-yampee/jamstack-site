@@ -1,5 +1,5 @@
-import Image from "next/image";
-import styles from '/styles/hero.module.scss'
+import Image from 'next/image'
+import styles from '/styles/hero.module.css'
 import cube from '/assets/media/images/cube.png'
 
 type Props = {
@@ -22,7 +22,13 @@ export default function Hero({
         </div>
         {imageOn && (
           <figure className={styles.image}>
-            <Image src={cube} alt="" sizes="(min-width: 1152px) 575px, (min-width: 768px) 50vw, 100vw" priority placeholder="blur" />
+            <Image
+              src={cube}
+              alt=""
+              sizes="(min-width: 1152px) 575px, (min-width: 768px) 50vw, 100vw"
+              priority
+              placeholder="blur"
+            />
           </figure>
         )}
       </div>

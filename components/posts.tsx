@@ -10,14 +10,12 @@ type PostsProps = {
   title: string
   slug: string
   id: string
-  eyecatch: PostEyecatch
-}
-
-type PostEyecatch = {
-  url: string
-  width: number
-  height: number
-  blurDataURL: string
+  eyecatch: {
+    url: string
+    width: number
+    height: number
+    blurDataURL: string
+  }
 }
 
 export function Posts({ posts }: Props) {

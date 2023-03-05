@@ -18,7 +18,7 @@ export async function getPostBySlug(slug: string) {
   }
 }
 
-export async function getAllSlugs(limit = 100) {
+export async function getAllSlugs(limit: number = 100) {
   try {
     const slugs = await client.get({
       endpoint: 'blogs',
@@ -31,7 +31,7 @@ export async function getAllSlugs(limit = 100) {
   }
 }
 
-export async function getAllCategories(limit = 100) {
+export async function getAllCategories(limit: number = 100) {
   try {
     const categories = await client.get({
       endpoint: 'categories',
@@ -44,7 +44,7 @@ export async function getAllCategories(limit = 100) {
   }
 }
 
-export async function getAllPosts(limit = 100) {
+export async function getAllPosts(limit: number = 100) {
   try {
     const allPosts = await client.get({
       endpoint: 'blogs',
@@ -57,7 +57,10 @@ export async function getAllPosts(limit = 100) {
   }
 }
 
-export async function getAllPostsByCategory(catID: string, limit = 100) {
+export async function getAllPostsByCategory(
+  catID: string,
+  limit: number = 100,
+) {
   // 空文字だったらエラーを出した上で返却する
   if (catID === '') {
     throw new Error('catID is empty string')
