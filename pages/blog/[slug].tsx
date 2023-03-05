@@ -83,6 +83,7 @@ export default function Post({
           <PostHeader title={title} subtitle="Blog Article" publish={publish} />
           <figure>
             <Image
+              key={eyecatch.url}
               src={eyecatch.url}
               alt=""
               sizes="(min-width: 1152px) 1152px, 100vw"
@@ -90,6 +91,8 @@ export default function Post({
               height={eyecatch.height}
               style={{ width: '100%', height: 'auto' }}
               priority
+              placeholder="blur"
+              blurDataURL={eyecatch.blurDataURL}
             />
           </figure>
           <TwoColumn>
