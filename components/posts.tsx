@@ -6,14 +6,14 @@ type Props = {
   posts: PostsProps[]
 }
 
-interface PostsProps {
+type PostsProps = {
   title: string
   slug: string
   id: string
   eyecatch: PostEyecatch
 }
 
-interface PostEyecatch {
+type PostEyecatch = {
   url: string
   width: number
   height: number
@@ -23,9 +23,9 @@ interface PostEyecatch {
 export function Posts({ posts }: Props) {
   return (
     <>
-      <ul className={styles.flexContainer}>
-        {posts.map(({title,slug,id,eyecatch}) => (
-          <li className={styles.eachPost} key={id}>
+      <div className={styles.gridContainer}>
+        {posts.map(({ title, slug, id, eyecatch }) => (
+          <article className={styles.eachPost} key={id}>
             <Link href={`/blog/${slug}`}>
               {eyecatch && (
                 <figure>
@@ -42,9 +42,9 @@ export function Posts({ posts }: Props) {
               )}
               <h2 className={styles.title}>{title}</h2>
             </Link>
-          </li>
+          </article>
         ))}
-      </ul>
+      </div>
     </>
   )
 }
