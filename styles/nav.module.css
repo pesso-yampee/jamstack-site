@@ -1,0 +1,127 @@
+.list {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.list[aria-hidden='true'] {
+  opacity: 0;
+  visibility: hidden;
+}
+.list[aria-hidden='false'] {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    position: initial;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    width: auto;
+    height: auto;
+    background-color: initial;
+    flex-direction: initial;
+    justify-content: initial;
+    transition: initial;
+  }
+}
+
+.list a {
+  color: var(--white);
+  font-size: var(--body);
+}
+
+@media screen and (min-width: 768px) {
+  .list a {
+    color: var(--black);
+    transition: color 0.5s;
+  }
+}
+
+@media (hover: hover) {
+  .list a:hover {
+    color: var(--accent);
+  }
+}
+
+@media (hover: none) {
+  .list a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .list a:active {
+    color: var(--accent);
+  }
+}
+
+/** ----------------------------
+Humberger Button
+---------------------------- */
+.burgerButton {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  margin-top: 2px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all .5s;
+}
+.burgerButton[aria-expanded='true']{
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+}
+.burgerButton[aria-expanded='true'] .line:nth-child(1) {
+  background-color: var(--white);
+  transform: translateY(10px) rotate(45deg);
+}
+.burgerButton[aria-expanded='true'] .line:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+.burgerButton[aria-expanded='true'] .line:nth-child(3) {
+  background-color: var(--white);
+  transform: translateY(-10px) rotate(-45deg);
+  
+}
+@media screen and (min-width: 768px) {
+  .burgerButton {
+    display: none;
+  }
+}
+
+.line {
+  display: block;
+  width: calc(32 / 42 * 100%);
+  height: 1px;
+  background-color: var(--gray-75);
+}
+
+.line:nth-child(1) {
+  transition: transform 0.5s background-color .5s;
+}
+.line:nth-child(2) {
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.line:nth-child(3) {
+  transition: transform 0.5s background-color .5s;
+}
+
