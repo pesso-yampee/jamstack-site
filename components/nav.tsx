@@ -1,22 +1,35 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import styles from 'styles/nav.module.css'
 
 export default function Nav(): JSX.Element {
+  const [open, setOpen] = useState<boolean>(false)
 
-  const [open, setOpen] = useState(false)
+  const toggleNav = useCallback(() => {
+    setOpen(!open)
+  }, [open])
+
+  const closeNav = useCallback(() => {
+    setOpen(false)
+  }, [])
 
   return (
-    <nav id="navi">
-      <ul className={styles.list} aria-hidden={!open}>
+    <nav id="navi" className={open ? styles.open : styles.close}>
+      <ul className={styles.list}>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/" onClick={closeNav}>
+            Home
+          </Link>
         </li>
         <li>
-          <Link href="/about">About</Link>
+          <Link href="/about" onClick={closeNav}>
+            About
+          </Link>
         </li>
         <li>
-          <Link href="/blog">Blog</Link>
+          <Link href="/blog" onClick={closeNav}>
+            Blog
+          </Link>
         </li>
       </ul>
       <button
@@ -25,7 +38,7 @@ export default function Nav(): JSX.Element {
         aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
         aria-haspopup="true"
         aria-controls="navi"
-        onClick={() => setOpen(!open)}
+        onClick={toggleNav}
         aria-expanded={open}
       >
         <span className={styles.line}></span>

@@ -1,9 +1,20 @@
+/* メニューを開いた場合 */
+.open .list {
+  visibility: visible;
+  right: 0;
+}
+
+/* メニューを閉じた場合 */
+.close .list {
+  visibility: hidden;
+  right: -100vw;
+}
+
 .list {
   position: fixed;
   z-index: 1;
-  display: flex;
   top: 0;
-  left: 0;
+  display: flex;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
@@ -11,16 +22,22 @@
   justify-content: center;
   align-items: center;
   gap: var(--space-md);
-  transition: opacity 0.5s, visibility 0.5s;
+  transition: visibility 0.5s, right 0.5s;
 }
 
-.list[aria-hidden='true'] {
-  opacity: 0;
-  visibility: hidden;
-}
-.list[aria-hidden='false'] {
-  opacity: 1;
-  visibility: visible;
+@media screen and (min-width: 768px) {
+  .list {
+    position: initial;
+    z-index: initial;
+    visibility: visible;
+    top: initial;
+    right: initial;
+    width: auto;
+    height: auto;
+    background-color: initial;
+    flex-direction: row;
+    transition: initial;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -81,13 +98,11 @@ Humberger Button
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: all .5s;
+  /* transition: all 0.5s; */
 }
-.burgerButton[aria-expanded='true']{
-  position: fixed;
+.burgerButton[aria-expanded='true'] {
+  position: relative;
   z-index: 2;
-  top: 0;
-  right: 0;
 }
 .burgerButton[aria-expanded='true'] .line:nth-child(1) {
   background-color: var(--white);
@@ -95,12 +110,10 @@ Humberger Button
 }
 .burgerButton[aria-expanded='true'] .line:nth-child(2) {
   opacity: 0;
-  visibility: hidden;
 }
 .burgerButton[aria-expanded='true'] .line:nth-child(3) {
   background-color: var(--white);
   transform: translateY(-10px) rotate(-45deg);
-  
 }
 @media screen and (min-width: 768px) {
   .burgerButton {
@@ -116,12 +129,11 @@ Humberger Button
 }
 
 .line:nth-child(1) {
-  transition: transform 0.5s background-color .5s;
+  transition: transform 0.5s, background-color 0.5s;
 }
 .line:nth-child(2) {
   transition: opacity 0.5s, visibility 0.5s;
 }
 .line:nth-child(3) {
-  transition: transform 0.5s background-color .5s;
+  transition: transform 0.5s, background-color 0.5s;
 }
-
