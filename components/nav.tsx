@@ -15,6 +15,19 @@ export default function Nav(): JSX.Element {
 
   return (
     <nav id="navi" className={open ? styles.open : styles.close}>
+      {open && (
+        <style jsx global>
+          {`
+            @media (max-width: 767px) {
+              body {
+                overflow: hidden;
+                position: fixed;
+                width: 100%;
+              }
+            }
+          `}
+        </style>
+      )}
       <ul className={styles.list}>
         <li>
           <Link href="/" onClick={closeNav}>
