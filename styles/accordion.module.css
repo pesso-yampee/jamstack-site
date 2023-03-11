@@ -1,5 +1,10 @@
-.list {
-  list-style: none;
+@keyframes toggleAnswer {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: var(--answer-text);
+  }
 }
 
 .item {
@@ -11,8 +16,8 @@
 }
 
 .button {
-  composes: spaceBetween from "styles/utils.module.css";
-	width: 100%;
+  composes: spaceBetween from 'styles/utils.module.css';
+  width: 100%;
   padding: 20px 16px;
   cursor: pointer;
 }
@@ -22,27 +27,34 @@
   font-size: 16px;
 }
 
-.button[aria-expanded="true"] .icon {
-	transform: rotate(180deg);
+.button[aria-expanded='true'] .icon {
+  transform: rotate(180deg);
 }
 
 .icon {
-	transition: transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .answer {
-	overflow: hidden;
-  display: none;
+  overflow: hidden;
+  transition: height 0.5s;
+  animation: toggleAnswer 0.5s ease-out;
+}
+.answer[aria-hidden='true'] {
+  height: 0;
+}
+.answer[aria-hidden='false'] {
+  height: var(--answer-text);
 }
 
 .answer_inner {
-  padding: 16px 0;
+  padding: 0 16px 16px 16px;
 }
 @media screen and (min-width: 768px) {
   .answer_inner {
-    padding: 18px 0;
+    padding: 0 18px 18px 18px;
   }
 }
-.answer_text {
+.answer_inner p {
   font-size: 16px;
 }
