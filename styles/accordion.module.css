@@ -1,9 +1,22 @@
-@keyframes toggleAnswer {
+@keyframes openAnswer {
   0% {
     height: 0;
   }
-  100% {
+  99% {
     height: var(--answer-text);
+  }
+  /* 最終的には高さを自動計算した値を設定することで、
+  画面幅が変わった時でも問題ないようにする */
+  100% {
+    height: auto;
+  }
+}
+@keyframes closeAnswer {
+  0% {
+    height: var(--answer-text);
+  }
+  100% {
+    height: 0;
   }
 }
 
@@ -38,13 +51,14 @@
 .answer {
   overflow: hidden;
   transition: height 0.5s;
-  animation: toggleAnswer 0.5s ease-out;
 }
 .answer[aria-hidden='true'] {
   height: 0;
+  animation: closeAnswer 0.5s forwards;
 }
 .answer[aria-hidden='false'] {
-  height: var(--answer-text);
+  animation: openAnswer 0.5s forwards;
+  height: auto;
 }
 
 .answer_inner {

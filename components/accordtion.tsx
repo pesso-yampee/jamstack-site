@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default function Accordion({ heading, children }: Props) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
   const refAnswer = useRef<HTMLDivElement>(null)
   const refAnswerStyle = {
     '--answer-text': `${
