@@ -25,9 +25,9 @@ export async function getAllSlugs(limit: number = 100) {
       queries: { fields: 'title,slug', orders: '-publishDate', limit: limit },
     })
     return slugs.contents
-  } catch (err) {
+  } catch (error) {
     console.log('~~ getAllSlugs ~~')
-    console.log(getAllSlugs)
+    console.log(error)
   }
 }
 
