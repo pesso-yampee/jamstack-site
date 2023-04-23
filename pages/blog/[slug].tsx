@@ -141,7 +141,7 @@ type Contents = {
 type AllSlugs = Contents[]
 
 export async function getStaticPaths() {
-  const allSlugs: AllSlugs = await getAllSlugs()
+  const allSlugs: Contents[] = await getAllSlugs()
   return {
     paths: allSlugs.map(({ slug }) => {
       return `/blog/${slug}`
