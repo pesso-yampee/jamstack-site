@@ -5,5 +5,8 @@ next.jsとmicroCMSで作成したサイト
 * Next.js
 * TypeScript
 
+## CMS
+* microCMS
+
 ## ホスティングサービス
-Vercel
+* Vercel
