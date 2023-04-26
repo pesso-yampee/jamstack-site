@@ -148,14 +148,10 @@ export async function getStaticPaths() {
   }
 }
 
-type ContextProps = Context
-
-type Context = {
-  params: Params
-}
-
-type Params = {
-  slug: string
+type ContextProps = {
+  params: {
+    slug: string
+  }
 }
 
 export async function getStaticProps(context: ContextProps) {
