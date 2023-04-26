@@ -138,14 +138,12 @@ type Contents = {
   slug: string
 }
 
-type AllSlugs = Contents[] | undefined
+type AllSlugs = Contents[]
 
 export async function getStaticPaths() {
   const allSlugs: AllSlugs = await getAllSlugs()
   return {
-    paths: allSlugs?.map(({ slug }) => {
-      return `/blog/${slug}`
-    }),
+    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false,
   }
 }
