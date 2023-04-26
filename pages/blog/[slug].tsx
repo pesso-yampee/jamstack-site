@@ -138,12 +138,12 @@ type Contents = {
   slug: string
 }
 
-type AllSlugs = Contents[]
+type AllSlugs = Contents[] | undefined
 
 export async function getStaticPaths() {
-  const allSlugs: Contents[] = await getAllSlugs()
+  const allSlugs: AllSlugs = await getAllSlugs()
   return {
-    paths: allSlugs.map(({ slug }) => {
+    paths: allSlugs?.map(({ slug }) => {
       return `/blog/${slug}`
     }),
     fallback: false,
@@ -168,7 +168,7 @@ export async function getStaticProps(context: ContextProps) {
   const eyecatch = post.eyecatch ?? eyeCatchLocal
   const { base64 } = await getPlaiceholder(eyecatch.url)
   eyecatch.blurDataURL = base64
-  const allSlugs: AllSlugs = await getAllSlugs()
+  const allSlugs = await getAllSlugs()
 
   const [prevPost, nextPost] = PrevNextPost(allSlugs, slug)
 
