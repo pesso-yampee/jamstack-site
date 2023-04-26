@@ -43,8 +43,8 @@ export default function Category({ name, posts }: Props) {
 
 type ContentsProps = {
   name: string
-  id: string
   slug: string
+  id: string
 }
 
 type Posts = {
